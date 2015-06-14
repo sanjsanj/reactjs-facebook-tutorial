@@ -19,6 +19,7 @@
   "homepage": "https://github.com/sanjsanj/reactjs-facebook-tutorial#readme",
   "devDependencies": {
     "body-parser": "^1.12.4",
-    "express": "^4.12.4"
+    "express": "^4.12.4",
+    "react-tools": "^0.13.3"
   }
 }
