@@ -6,16 +6,16 @@
     <script src="https://fb.me/react-0.13.3.js"></script>
     <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
   </head>
   <body>
     <div id="content"></div>
-    <script type="text/js">
+    <script type="text/jsx">
 
       var CommentBox = React.createClass({
         render: function(){
           return (
             <div className="commentBox">
-              Hello, World!  I am a CommentBox.
               <h1>Comments</h1>
               <CommentList />
               <CommentForm />
@@ -28,7 +28,8 @@
         render: function(){
           return (
             <div className="CommentList">
-              Hello, World!  I am a CommentList.
+              <Comment author="Pete Hunt">This is one comment</Comment>
+              <Comment author="Jordan Walke">This is *another* comment</Comment>
             </div>
           );
         }
@@ -51,16 +52,13 @@
               <h2 className="commentAuthor">
                 {this.props.author}
               </h2>
-              {this.props.children}
+              {marked(this.props.children.toString())}
             </div>
           );
         }
       });
 
-      React.render(
-        <CommentBox />
-        document.getElementById('content')
-      );
+      React.render(<CommentBox />, document.getElementById('content'));
 
     </script>
   </body>
