@@ -10,19 +10,58 @@
   <body>
     <div id="content"></div>
     <script type="text/js">
+
       var CommentBox = React.createClass({
         render: function(){
           return (
             <div className="commentBox">
               Hello, World!  I am a CommentBox.
+              <h1>Comments</h1>
+              <CommentList />
+              <CommentForm />
             </div>
           );
         }
       });
+
+      var CommentList = React.createClass({
+        render: function(){
+          return (
+            <div className="CommentList">
+              Hello, World!  I am a CommentList.
+            </div>
+          );
+        }
+      });
+
+      var CommentForm = React.createClass({
+        render: function(){
+          return (
+            <div className="CommentForm">
+              Hello, World!  I am a CommentForm.
+            </div>
+          );
+        }
+      });
+
+      var Comment = React.createClass({
+        render: function(){
+          return (
+            <div className="Comment">
+              <h2 className="commentAuthor">
+                {this.props.author}
+              </h2>
+              {this.props.children}
+            </div>
+          );
+        }
+      });
+
       React.render(
         <CommentBox />
         document.getElementById('content')
       );
+
     </script>
   </body>
 </html>
